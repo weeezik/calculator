@@ -22,11 +22,12 @@ body {
     height: 500px;
 }
 .display {
-    display: flex;
+    /* display: flex;
     justify-content: flex-start;
+    align-items: flex-start; */
     margin: 20px;
     border: 1px solid black;
-    padding: 5px 250px;
+    padding: 5px 200px;
 }
 .container {
     margin: 20px;

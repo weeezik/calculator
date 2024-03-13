@@ -4,6 +4,32 @@
 //when 3 button is clicked, set num2 to 3
 //when = button clicked, display console.log(operate(operator, num1, num2))
 //when clear button clicked, remove any/all contents from display (might have to reset num1, operator, and num2 variables to null)
+const display = document.querySelector(".display");
+let displayValue;
+
+
+const two = document.querySelector("#two");
+two.addEventListener("click", function (displayValue) {
+    //if id of button clicked is 2, set display value to 2
+    //switch statement
+    displayValue = 2;
+    display.textContent = displayValue;
+});
+
+
+
+//button-independent approach
+//classbuttons.addEventListener (onclick) run function updateDisplay, 
+//function updateDisplay {takes value of button and returns it to display}
+
+
+
+
+
+
+
+
+
 
 //operate function
 let operator = "-"

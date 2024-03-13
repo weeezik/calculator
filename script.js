@@ -13,22 +13,16 @@ const display = document.querySelector(".display");
 
 
 const numberButtons = document.querySelectorAll(".number-button");
-console.log(numberButtons);
 // let displayValue;
 
-//this function will run anytime a number button is clicked
-// function updateDisplay () {
-//     console.log(event.type)
-// };
-
-//use the forEach method to loop through each element and add an event listner to it
-//within this event listner is the udpateDisplay function which within is a switch function updating the displayValue based on the event.target
-
+//use the forEach method to loop through each element and add an event listener
+//to it
+//within this event listner is the udpateDisplay function which within is a 
+//switch function updating the displayValue based on the event.target
 numberButtons.forEach(function(button) {
-    button.addEventListener("click", function(displayValue) {
-        // switch(event.target)
-        displayValue = console.log(event.target)
-        display.textContent = displayValue;
+    button.addEventListener("click", function() {
+        console.log("Number clicked: " + event.target.textContent);
+        display.textContent = event.target.textContent;
     })
 });
 

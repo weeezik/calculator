@@ -6,38 +6,16 @@
 //when clear button clicked, remove any/all contents from display (might have to reset num1, operator, and num2 variables to null)
 
 
-// const two = document.querySelector("#two");
-
 const display = document.querySelector(".display");
-
-
-
 const numberButtons = document.querySelectorAll(".number-button");
-// let displayValue;
 
 //use the forEach method to loop through each element and add an event listener
-//to it
-//within this event listner is the udpateDisplay function which within is a 
-//switch function updating the displayValue based on the event.target
 numberButtons.forEach(function(button) {
     button.addEventListener("click", function() {
         console.log("Number clicked: " + event.target.textContent);
         display.textContent = event.target.textContent;
     })
 });
-
-
-
-//button-independent approach
-//classbuttons.addEventListener (onclick) run function updateDisplay, 
-//function updateDisplay {takes value of button and returns it to display}
-
-
-
-
-
-
-
 
 
 

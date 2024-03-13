@@ -4,20 +4,32 @@
 //when 3 button is clicked, set num2 to 3
 //when = button clicked, display console.log(operate(operator, num1, num2))
 //when clear button clicked, remove any/all contents from display (might have to reset num1, operator, and num2 variables to null)
+
+
+// const two = document.querySelector("#two");
+
 const display = document.querySelector(".display");
-let displayValue;
-const two = document.querySelector("#two");
 
 
 
 const numberButtons = document.querySelectorAll(".number-button");
 console.log(numberButtons);
-numberButtons.addEventListener("click", function (displayValue) {
-    //if id of button clicked is 2, set display value to 2
-    //switch statement
+// let displayValue;
 
-    displayValue = 2;
-    display.textContent = displayValue;
+//this function will run anytime a number button is clicked
+// function updateDisplay () {
+//     console.log(event.type)
+// };
+
+//use the forEach method to loop through each element and add an event listner to it
+//within this event listner is the udpateDisplay function which within is a switch function updating the displayValue based on the event.target
+
+numberButtons.forEach(function(button) {
+    button.addEventListener("click", function(displayValue) {
+        // switch(event.target)
+        displayValue = console.log(event.target)
+        display.textContent = displayValue;
+    })
 });
 
 

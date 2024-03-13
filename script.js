@@ -6,12 +6,16 @@
 //when clear button clicked, remove any/all contents from display (might have to reset num1, operator, and num2 variables to null)
 const display = document.querySelector(".display");
 let displayValue;
-
-
 const two = document.querySelector("#two");
-two.addEventListener("click", function (displayValue) {
+
+
+
+const numberButtons = document.querySelectorAll(".number-button");
+console.log(numberButtons);
+numberButtons.addEventListener("click", function (displayValue) {
     //if id of button clicked is 2, set display value to 2
     //switch statement
+
     displayValue = 2;
     display.textContent = displayValue;
 });

@@ -7,6 +7,9 @@
 /* remove default extra space */
 body {
     margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .button {
     max-width: 100px;
@@ -22,12 +25,16 @@ body {
     height: 500px;
 }
 .display {
-    /* display: flex;
-    justify-content: flex-start;
-    align-items: flex-start; */
-    margin: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     border: 1px solid black;
-    padding: 5px 200px; 
+    max-width: 450px;
+    width: 450px;
+    max-height: 30px;
+    height: 30px;
+
+
 }
 .container {
     margin: 20px;

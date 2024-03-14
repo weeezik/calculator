@@ -8,18 +8,25 @@
 
 const display = document.querySelector(".display");
 const numberButtons = document.querySelectorAll(".number-button");
+const clearButton = document.querySelector("#clear");
+
 
 //use the forEach method to loop through each element and add an event listener
 
 numberButtons.forEach(function(button) {
     button.addEventListener("click", function() {
-        // console.log("Number clicked: " + event.target.textContent);
-        let displayValue = (event.target.textContent).toString();
-        display.textContent = displayValue;
-        return displayValue;
-
+        let returnValue = display.textContent;
+        let displayValue = returnValue;
+        let buttonValue = (event.target.textContent).toString();
+        returnValue = displayValue += buttonValue;
+        display.textContent = returnValue;
     })
 });
+
+clearButton.addEventListener("click", function () {
+    display.textContent = " ";
+});
+
 
 
 

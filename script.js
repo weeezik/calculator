@@ -13,11 +13,11 @@ const numberButtons = document.querySelectorAll(".number-button");
 
 numberButtons.forEach(function(button) {
     button.addEventListener("click", function() {
-        console.log("Number clicked: " + event.target.textContent);
+        // console.log("Number clicked: " + event.target.textContent);
         let displayValue = (event.target.textContent).toString();
-        displayValue = displayValue.concat(displayValue)
         display.textContent = displayValue;
         return displayValue;
+
     })
 });
 

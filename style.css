@@ -55,7 +55,7 @@ button:active {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    border: 5px inset olive;
+    border: 5px inset black;
     max-width: 450px;
     width: 400px;
     max-height: 30px;

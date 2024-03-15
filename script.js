@@ -5,18 +5,15 @@
 //when = button clicked, display console.log(operate(operator, num1, num2))
 //when clear button clicked, remove any/all contents from display (might have to reset num1, operator, and num2 variables to null)
 
-
 const display = document.querySelector(".display");
 const numberButtons = document.querySelectorAll(".number-button");
 const clearButton = document.querySelector("#clear");
 const operateButtons = document.querySelectorAll(".operate-button");
 
 
-
 //use the forEach method to loop through each element and add an event listener
-
-numberButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
+numberButtons.forEach(function (theNumbers) {
+    theNumbers.addEventListener("click", function () {
         let returnValue = display.textContent;
         let displayValue = returnValue;
         let buttonValue = (event.target.textContent).toString();
@@ -24,25 +21,14 @@ numberButtons.forEach(function (button) {
         display.textContent = returnValue;
     })
 });
-
+//operator (content of button clicked) should be added to the display, similar to numberButtons function
 operateButtons.forEach(function (theOperators) {
     theOperators.addEventListener("click", function () {
-        switch (event.target.textContent) {
-            case "+":
-                operator = "+";
-            case "-":
-                operator = "-";
-            case "x":
-                operator = "*";
-            case "÷":
-                operator = "/"
-        }
-        // (display.textContent).concat(operator)
-        let firstStep = [num1, operator];
-        console.log(firstStep)
-        return firstStep;
+        let displayValue = display.textContent
+        let operator = event.target.textContent;
+        display.textContent = displayValue.concat(operator);
     })
-});
+})
 
 
 clearButton.addEventListener("click", function () {

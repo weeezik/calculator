@@ -1,3 +1,7 @@
+* {
+    transition: all .1s ease;
+}
+
 body {
     /* remove default extra space */
     margin: 0px;
@@ -6,16 +10,18 @@ body {
     justify-content: center;
     font-family: 'Courier New', Courier, monospace;
 }
+
 .button {
     width: 100px;
     height: 100px;
     margin: 6px;
     font-family: 'Courier New', Courier, monospace;
     border-radius: 100px;
-    border-color:darkolivegreen;
+    border-color: darkolivegreen;
     background-color: rgb(39, 52, 17);
     color: white;
 }
+
 .button-container {
     max-width: 500px;
     width: 500px;
@@ -28,11 +34,28 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* click transition buttons */
+button {
+    height: 70px;
+    width: 150px;
+    background-color: #3399FF;
+    border: lightblue solid 1px;
+    outline: none;
+    color: #fff !important;
+}
+
+button:active {
+    -webkit-box-shadow: inset 1px 1px 10px #333;
+    -moz-box-shadow: inset 1px 1px 10px #333;
+    box-shadow: inset 1px 1px 10px #333;
+}
+
 .display {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    border: 1px solid black;
+    border: 5px inset olive;
     max-width: 450px;
     width: 400px;
     max-height: 30px;
@@ -41,13 +64,17 @@ body {
     margin-bottom: 18px;
     margin-top: 36px;
     font-size: larger;
+    background-color: darkolivegreen;
+    color: white;
 }
+
 .container {
     margin: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .number-button {
     max-width: 100px;
     width: 100px;
@@ -58,10 +85,11 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     border-radius: 100px;
-    border-color:darkolivegreen;
+    border-color: darkolivegreen;
     background-color: rgb(7, 92, 7);
     color: white
 }
+
 .operate-button {
     max-width: 100px;
     width: 100px;
@@ -71,20 +99,21 @@ body {
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
     border-radius: 100px;
-    border-color:darkolivegreen;
+    border-color: darkolivegreen;
     background-color: rgb(44, 56, 23);
     color: white;
 }
+
 #equal {
     font-weight: 600;
     font-size: 20px;
     font-family: 'Courier New', Courier, monospace;
     border-radius: 100px;
-    border-color:darkolivegreen;
+    border-color: darkolivegreen;
     background-color: rgb(16, 20, 9);
     color: white;
 }
+
 #clear {
     font-size: large;
 }
-

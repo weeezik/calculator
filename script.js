@@ -50,10 +50,10 @@ const operate = function (operator, num1, num2) {
         case "-":
             return num1 - num2;
             break;
-        case "*":
-            return num1 + num2;
+        case "x":
+            return num1 * num2;
             break;
-        case "/":
+        case "÷":
             return num1 / num2;
             break;
     }
@@ -69,10 +69,8 @@ equalsButton.addEventListener("click", function () {
     let num2 = parseInt(equationArray[1]);
     console.log(num2);
     console.log(operator)
-    display.textContent = operate(operator, num1, num2);
+    display.textContent = Math.round(operate(operator, num1, num2)*100)/100;
 })
-
-
 
 
 console.log("Operate function check --- Should be 4: [" + operate("+", 2, 2) + "] ...Yup it's 4.")

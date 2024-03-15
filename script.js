@@ -9,7 +9,7 @@ const display = document.querySelector(".display");
 const numberButtons = document.querySelectorAll(".number-button");
 const clearButton = document.querySelector("#clear");
 const operateButtons = document.querySelectorAll(".operate-button");
-const equalsButton = document.querySelector("#equal")
+const equalsButton = document.querySelector("#equal");
 
 let operator;
 let num1;
@@ -37,7 +37,6 @@ operateButtons.forEach(function (theOperators) {
     })
 });
 
-
 clearButton.addEventListener("click", function () {
     display.textContent = " ";
 });
@@ -63,12 +62,8 @@ const operate = function (operator, num1, num2) {
 equalsButton.addEventListener("click", function () {
     let resultDisplay = display.textContent;   
     const equationArray = resultDisplay.split(operator);
-    // console.log(equationArray);
     let num1 = parseInt(equationArray[0]);
-    console.log(num1);
     let num2 = parseInt(equationArray[1]);
-    console.log(num2);
-    console.log(operator)
     display.textContent = Math.round(operate(operator, num1, num2)*100)/100;
 })
 

@@ -1,25 +1,3 @@
-//operate function
-//hypothetical values
-// let operator = "-"
-// let num1 = 10
-// let num2 = 5
-const operate = function (operator, num1, num2) {
-    switch (operator) {
-        case "+":
-            return num1 + num2;
-            break;
-        case "-":
-            return num1 - num2;
-            break;
-        case "*":
-            return num1 + num2;
-            break;
-        case "/":
-            return num1 / num2;
-            break;
-    }
-}
-
 //add"click" event listeners for each button
 //when 2 button is clicked, set num1 to 2
 //when + button is clicked, set operator to "+"
@@ -54,7 +32,6 @@ operateButtons.forEach(function (theOperators) {
     theOperators.addEventListener("click", function () {
         let displayValue = display.textContent
         operator = event.target.textContent;
-        console.log(operator);
         display.textContent = displayValue.concat(operator);
         return operator
     })
@@ -65,13 +42,34 @@ clearButton.addEventListener("click", function () {
     display.textContent = " ";
 });
 
+const operate = function (operator, num1, num2) {
+    switch (operator) {
+        case "+":
+            return num1 + num2;
+            break;
+        case "-":
+            return num1 - num2;
+            break;
+        case "*":
+            return num1 + num2;
+            break;
+        case "/":
+            return num1 / num2;
+            break;
+    }
+}
+
+
 equalsButton.addEventListener("click", function () {
-    let currentDisplay = display.textContent;   
-    const equationArray = currentDisplay.split(operator);
-    console.log(equationArray);
-    let num1 = equationArray[0];
-    let num2 = equationArray[1];
-    currentDisplay = operate(operator, num1, num2);
+    let resultDisplay = display.textContent;   
+    const equationArray = resultDisplay.split(operator);
+    // console.log(equationArray);
+    let num1 = parseInt(equationArray[0]);
+    console.log(num1);
+    let num2 = parseInt(equationArray[1]);
+    console.log(num2);
+    console.log(operator)
+    display.textContent = operate(operator, num1, num2);
 })
 
 

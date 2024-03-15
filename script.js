@@ -9,6 +9,7 @@ const display = document.querySelector(".display");
 const numberButtons = document.querySelectorAll(".number-button");
 const clearButton = document.querySelector("#clear");
 const operateButtons = document.querySelectorAll(".operate-button");
+const equalsButton = document.querySelector("#equal")
 
 
 //use the forEach method to loop through each element and add an event listener
@@ -30,16 +31,21 @@ operateButtons.forEach(function (theOperators) {
     })
 })
 
-
 clearButton.addEventListener("click", function () {
     display.textContent = " ";
 });
 
+equalsButton.addEventListener("click", function () {
+    //sift variables
+    //run operate function
+})
+
+
 //operate function
-//hypothetical values
-// let operator = "-"
-// let num1 = 10
-// let num2 = 5
+    //hypothetical values
+    // let operator = "-"
+    // let num1 = 10
+    // let num2 = 5
 const operate = function (operator, num1, num2) {
     switch (operator) {
         case "+":

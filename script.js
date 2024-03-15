@@ -25,6 +25,26 @@ numberButtons.forEach(function (button) {
     })
 });
 
+operateButtons.forEach(function (theOperators) {
+    theOperators.addEventListener("click", function () {
+        switch (event.target.textContent) {
+            case "+":
+                operator = "+";
+            case "-":
+                operator = "-";
+            case "x":
+                operator = "*";
+            case "÷":
+                operator = "/"
+        }
+        // (display.textContent).concat(operator)
+        let firstStep = [num1, operator];
+        console.log(firstStep)
+        return firstStep;
+    })
+});
+
+
 clearButton.addEventListener("click", function () {
     display.textContent = " ";
 });
@@ -53,32 +73,3 @@ const operate = function (operator, num1, num2) {
 
 console.log("Operate function check --- Should be 4: [" + operate("+", 2, 2) + "] ...Yup it's 4.")
 // console.log("Via variable operation: " + operate(operator, num1, num2))
-
-operateButtons.forEach(function (theOperators) {
-    theOperators.addEventListener("click", function () {
-        let num1 = display.textContent;
-        switch (event.target.textContent) {
-            case "+":
-                operator = "+";
-            case "-":
-                operator = "-";
-            case "x":
-                operator = "*";
-            case "÷":
-                operator = "/"
-        }
-        let firstStep = [num1, operator];
-        console.log(firstStep)
-        return firstStep;
-    })
-});
-
-//only after operator is selected: when a number button is pressed the 
-//display is cleared and new num2 can be entered
-
-//when equals button is pressed, num2=display.textContent 
-//and then run the operate function
-
-//equal button logic in WHITE NOTEBOOK
-//update display.textContent to 
-// display.textContent = operate(operator, num1, num2);

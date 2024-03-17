@@ -12,7 +12,7 @@ const numberButtons = document.querySelectorAll(".number-button");
 const clearButton = document.querySelector("#clear");
 const operateButtons = document.querySelectorAll(".operate-button");
 const equalsButton = document.querySelector("#equal");
-const decimalButton = document.querySelector("decimalpoint");
+const decimalButton = document.querySelector("#decimalpoint");
 
 //AUDIO
 const mainHit = new Audio();
@@ -72,12 +72,17 @@ equalsButton.addEventListener("click", function () {
     let num1 = parseInt(equationArray[0].split(operator));
     let num2 = parseInt(equationArray[1]);
     display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
+})   
+    
+//add decimal point to display
+//disable decimal point if a decimal point 
+//is already in the number in display (i.e., an operator resets decimal count)
+decimalButton.addEventListener("click", function() {
+    mainHit.play();
+    let displayValue = display.textContent;
+    let decimal = event.target.textContent;
+    display.textContent = displayValue.concat(decimal);
 })
-
-//decimal point button event listener function
-    //add decimal point to display
-    //disable decimal point if a decimal point is already in the number in display (i.e., an operator resets decimal count)
-
 //keyboard support 
 //(event listener's match with their original input, numberkeyboard similar code to numberbutton event listener)
 

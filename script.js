@@ -45,7 +45,13 @@ operateButtons.forEach(function (theOperators) {
         let minusSign = /\-/
         let multSign = /\x/
         let divSign = /\÷/
+        switch (plusSign.test(displayValue)) {
+            case true:
+                
+            default:
+                //onepress code
 
+        }
         //If operator is in display already, calculate that equation then concat 
         //that result to the operator pressed (second-time pressed operator).
         if (plusSign.test(displayValue) === true) {
@@ -60,7 +66,14 @@ operateButtons.forEach(function (theOperators) {
             display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
             displayValue = display.textContent
             display.textContent = displayValue.concat(operator)
-        } else if (minusSign.test(displayValue) === true) {
+        } else {
+            //First operator press code here
+            operator = event.target.textContent;
+            display.textContent = displayValue.concat(operator);
+            console.log("First operator button pressed (there are no operators in the display yet).")
+            return operator
+        }
+        if (minusSign.test(displayValue) === true) {
             //MINUS CHECK
             console.log("Minus sign in previous equation.");
             //set operator as current event target to add to display
@@ -72,7 +85,14 @@ operateButtons.forEach(function (theOperators) {
             display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
             displayValue = display.textContent
             display.textContent = displayValue.concat(operator)
-        } else if (multSign.test(displayValue) === true) {
+        } else {
+            //First operator press code here
+            operator = event.target.textContent;
+            display.textContent = displayValue.concat(operator);
+            console.log("First operator button pressed (there are no operators in the display yet).")
+            return operator
+        }
+        if (multSign.test(displayValue) === true) {
             //MULT CHECK
             console.log("Mult sign in previous equation.")
             //set operator as current event target to add to display
@@ -84,7 +104,14 @@ operateButtons.forEach(function (theOperators) {
             display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
             displayValue = display.textContent
             display.textContent = displayValue.concat(operator)
-        } else if (divSign.test(displayValue) === true) {
+        } else {
+            //First operator press code here
+            operator = event.target.textContent;
+            display.textContent = displayValue.concat(operator);
+            console.log("First operator button pressed (there are no operators in the display yet).")
+            return operator
+        }
+        if (divSign.test(displayValue) === true) {
             //DIV CHECK
             console.log("Div sign in previous equation.")
             //set operator as current event target to add to display
@@ -145,7 +172,7 @@ equalsButton.addEventListener("click", function () {
 })
 
 
-// console.log("Operate function check --- Should be 4: [" + operate("+", 2, 2) + "] ...Yup it's 4.")
+console.log("Operate function check --- Should be 4: [" + operate("+", 2, 2) + "] ...Yup it's 4.")
 // console.log("Via variable operation: " + operate(operator, num1, num2))
 
 

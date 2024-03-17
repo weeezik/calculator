@@ -88,12 +88,12 @@ operateButtons.forEach(function (theOperators) {
         if (plusSign.test(displayValue) === true || minusSign.test(displayValue) === true || 
             multSign.test(displayValue) === true || divSign.test(displayValue) === true) {
             let prevOperator = operator
-            // operator = event.target.textContent;
-            display.textContent = displayValue.concat(prevOperator);
+            operator = event.target.textContent;
+            display.textContent = displayValue.concat(operator);
             //output of equation
             const equationArray = displayValue.split(prevOperator);
             console.table(equationArray)
-            let num1 = parseInt(equationArray[0].split(prevOperator));
+            let num1 = parseInt(equationArray[0]);
             let num2 = parseInt(equationArray[1]);
             display.textContent = Math.round(operate(prevOperator, num1, num2) * 100) / 100;
             displayValue = display.textContent

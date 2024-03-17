@@ -12,6 +12,7 @@ const numberButtons = document.querySelectorAll(".number-button");
 const clearButton = document.querySelector("#clear");
 const operateButtons = document.querySelectorAll(".operate-button");
 const equalsButton = document.querySelector("#equal");
+const decimalButton = document.querySelector("decimalpoint");
 
 //AUDIO
 const mainHit = new Audio();

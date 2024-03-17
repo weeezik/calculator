@@ -73,6 +73,13 @@ equalsButton.addEventListener("click", function () {
     display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
 })
 
+//decimal point button event listener function
+    //add decimal point to display
+    //disable decimal point if a decimal point is already in the number in display (i.e., an operator resets decimal count)
+
+//keyboard support 
+//(event listener's match with their original input, numberkeyboard similar code to numberbutton event listener)
+
 operateButtons.forEach(function (theOperators) {
     theOperators.addEventListener("click", function () {
         mainHit.play();

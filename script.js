@@ -40,9 +40,7 @@ numberButtons.forEach(function (theNumbers) {
 operateButtons.forEach(function (theOperators) {
     theOperators.addEventListener("click", function () {
         mainHit.play();
-
         let displayValue = display.textContent
-
         let plusSign = /\+/
         let minusSign = /\-/
         let multSign = /\x/

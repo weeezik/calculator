@@ -51,33 +51,53 @@ operateButtons.forEach(function (theOperators) {
         //If operator is in display already, calculate that equation then concat 
         //that result to the operator pressed (second-time pressed operator).
         if (plusSign.test(displayValue) === true) {
+            //PLUS CHECK
             console.log("Plus sign in previous equation.");
+            //set operator as current event target to add to display
+            operator = event.target.textContent;
+            //output of equation
             const equationArray = displayValue.split(operator);
             let num1 = parseInt(equationArray[0].split(operator));
             let num2 = parseInt(equationArray[1]);
             display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
             displayValue = display.textContent
+            display.textContent = displayValue.concat(operator)
         } else if (minusSign.test(displayValue) === true) {
+            //MINUS CHECK
             console.log("Minus sign in previous equation.");
+            //set operator as current event target to add to display
+            operator = event.target.textContent;
+            //output of equation
             const equationArray = displayValue.split(operator);
             let num1 = parseInt(equationArray[0].split(operator));
             let num2 = parseInt(equationArray[1]);
             display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
             displayValue = display.textContent
+            display.textContent = displayValue.concat(operator)
         } else if (multSign.test(displayValue) === true) {
+            //MULT CHECK
             console.log("Mult sign in previous equation.")
+            //set operator as current event target to add to display
+            operator = event.target.textContent;
+            //output of equation
             const equationArray = displayValue.split(operator);
             let num1 = parseInt(equationArray[0].split(operator));
             let num2 = parseInt(equationArray[1]);
             display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
             displayValue = display.textContent
+            display.textContent = displayValue.concat(operator)
         } else if (divSign.test(displayValue) === true) {
+            //DIV CHECK
             console.log("Div sign in previous equation.")
+            //set operator as current event target to add to display
+            operator = event.target.textContent;
+            //output of equation
             const equationArray = displayValue.split(operator);
             let num1 = parseInt(equationArray[0].split(operator));
             let num2 = parseInt(equationArray[1]);
             display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
             displayValue = display.textContent
+            display.textContent = displayValue.concat(operator)
         } else {
             //First operator press code here
             operator = event.target.textContent;

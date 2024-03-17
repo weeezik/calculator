@@ -49,6 +49,9 @@ operateButtons.forEach(function (theOperators) {
 
 clearButton.addEventListener("click", function () {
     clearHit.play();
+    operator = ""
+    num1 = ""
+    num2 = ""
     display.textContent = " ";
 });
 

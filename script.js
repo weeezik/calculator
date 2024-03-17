@@ -25,6 +25,22 @@ equalHit.src = "./audio/equaltypehit.wav";
 let operator;
 let num1;
 let num2;
+const operate = function (operator, num1, num2) {
+    switch (operator) {
+        case "+":
+            return num1 + num2;
+            break;
+        case "-":
+            return num1 - num2;
+            break;
+        case "x":
+            return num1 * num2;
+            break;
+        case "÷":
+            return num1 / num2;
+            break;
+    }
+}
 
 numberButtons.forEach(function (theNumbers) {
     theNumbers.addEventListener("click", function () {
@@ -37,6 +53,25 @@ numberButtons.forEach(function (theNumbers) {
     })
 });
 
+clearButton.addEventListener("click", function () {
+    clearHit.play();
+    operator = ""
+    num1 = ""
+    num2 = ""
+    display.textContent = "";
+    displayValue = "";
+});
+equalsButton.addEventListener("click", function () {
+    equalHit.play();
+    let resultDisplay = display.textContent;
+    const equationArray = resultDisplay.split(operator);
+    console.table(equationArray)
+    console.log(operator)
+    let num1 = parseInt(equationArray[0].split(operator));
+    let num2 = parseInt(equationArray[1]);
+    display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
+})
+
 operateButtons.forEach(function (theOperators) {
     theOperators.addEventListener("click", function () {
         mainHit.play();
@@ -45,7 +80,7 @@ operateButtons.forEach(function (theOperators) {
         let minusSign = /\-/
         let multSign = /\x/
         let divSign = /\÷/ 
-        
+
         //If operator is in display already, calculate that equation then concat 
         //that result to the operator pressed (second-time pressed operator).
         if (plusSign.test(displayValue) === true) {
@@ -104,49 +139,3 @@ operateButtons.forEach(function (theOperators) {
         }
     })
 });
-
-clearButton.addEventListener("click", function () {
-    clearHit.play();
-    operator = ""
-    num1 = ""
-    num2 = ""
-    display.textContent = "";
-    displayValue = "";
-});
-
-const operate = function (operator, num1, num2) {
-    switch (operator) {
-        case "+":
-            return num1 + num2;
-            break;
-        case "-":
-            return num1 - num2;
-            break;
-        case "x":
-            return num1 * num2;
-            break;
-        case "÷":
-            return num1 / num2;
-            break;
-    }
-}
-
-
-equalsButton.addEventListener("click", function () {
-    equalHit.play();
-    let resultDisplay = display.textContent;
-    const equationArray = resultDisplay.split(operator);
-    console.table(equationArray)
-    console.log(operator)
-    let num1 = parseInt(equationArray[0].split(operator));
-    let num2 = parseInt(equationArray[1]);
-    display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
-})
-
-
-console.log("Operate function check --- Should be 4: [" + operate("+", 2, 2) + "] ...Yup it's 4.")
-// console.log("Via variable operation: " + operate(operator, num1, num2))
-
-
-
-

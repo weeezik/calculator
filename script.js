@@ -40,79 +40,50 @@ numberButtons.forEach(function (theNumbers) {
 operateButtons.forEach(function (theOperators) {
     theOperators.addEventListener("click", function () {
         mainHit.play();
+
         let displayValue = display.textContent
+
         let plusSign = /\+/
         let minusSign = /\-/
         let multSign = /\x/
         let divSign = /\÷/
-        //equals button logic
+
         //If operator is in display already, calculate that equation then concat 
         //that result to the operator pressed (second-time pressed operator).
-        switch (displayValue) {
-            case (plusSign.test(displayValue)===true):
-                //run second press code (i.e., equals button code. i.e., calculate what is on the dislay)
-                //because an expression with a plus sign is already in the code    
-                //SECOND PRESS
-                console.log("This is the second time an operator button has been pressed.")
-                let resultDisplay = display.textContent;
-                const equationArray = displayValue.split(operator);
-                // console.table(equationArray)
-                let num1 = parseInt(equationArray[0].split(operator));
-                // console.log(num1);
-                let num2 = parseInt(equationArray[1]);
-                // console.log(num2);
-                display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
-                displayValue = display.textContent
-            
-            case (minusSign.test(displayValue)===true):
-            //minus
-            //SECOND PRESS
-            console.log("This is the second time an operator button has been pressed.")
-            let resultDisplay = display.textContent;
-            const equationArray = resultDisplay.split(operator);
-            // console.table(equationArray)
+        if (plusSign.test(displayValue) === true) {
+            console.log("Plus sign in previous equation.");
+            const equationArray = displayValue.split(operator);
             let num1 = parseInt(equationArray[0].split(operator));
-            // console.log(num1);
             let num2 = parseInt(equationArray[1]);
-            // console.log(num2);
             display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
             displayValue = display.textContent
-            case (multSign.test(displayValue)===true):
-            //mult
-            console.log("This is the second time an operator button has been pressed.")
-            let resultDisplay = display.textContent;
-            const equationArray = resultDisplay.split(operator);
-            // console.table(equationArray)
+        } else if (minusSign.test(displayValue) === true) {
+            console.log("Minus sign in previous equation.");
+            const equationArray = displayValue.split(operator);
             let num1 = parseInt(equationArray[0].split(operator));
-            // console.log(num1);
             let num2 = parseInt(equationArray[1]);
-            // console.log(num2);
             display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
             displayValue = display.textContent
-            case (divSign.test(displayValue)===true):
-            //div
-            console.log("This is the second time an operator button has been pressed.")
-            let resultDisplay = display.textContent;
-            const equationArray = resultDisplay.split(operator);
-            // console.table(equationArray)
+        } else if (multSign.test(displayValue) === true) {
+            console.log("Mult sign in previous equation.")
+            const equationArray = displayValue.split(operator);
             let num1 = parseInt(equationArray[0].split(operator));
-            // console.log(num1);
             let num2 = parseInt(equationArray[1]);
-            // console.log(num2);
             display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
             displayValue = display.textContent
-            default:
-                //Operator1 code HERE
-                operator = event.target.textContent;
-                display.textContent = displayValue.concat(operator);
-                console.log("First operator button pressed (there are no operators in the display yet).")
-                return operator
-        }
-
-        if (displayValue.search(allOperators) === -1) {
-
+        } else if (divSign.test(displayValue) === true) {
+            console.log("Div sign in previous equation.")
+            const equationArray = displayValue.split(operator);
+            let num1 = parseInt(equationArray[0].split(operator));
+            let num2 = parseInt(equationArray[1]);
+            display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
+            displayValue = display.textContent
         } else {
-
+            //First operator press code here
+            operator = event.target.textContent;
+            display.textContent = displayValue.concat(operator);
+            console.log("First operator button pressed (there are no operators in the display yet).")
+            return operator
         }
     })
 });
@@ -156,7 +127,7 @@ equalsButton.addEventListener("click", function () {
 })
 
 
-console.log("Operate function check --- Should be 4: [" + operate("+", 2, 2) + "] ...Yup it's 4.")
+// console.log("Operate function check --- Should be 4: [" + operate("+", 2, 2) + "] ...Yup it's 4.")
 // console.log("Via variable operation: " + operate(operator, num1, num2))
 
 

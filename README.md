@@ -1,4 +1,4 @@
-# calculator
+# Calculator
 Completed as final project for the Foundations Course via The Odin Project. 
 March, 2024
 ## Basic Specifications

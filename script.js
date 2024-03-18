@@ -69,22 +69,24 @@ equalsButton.addEventListener("click", function () {
     const equationArray = resultDisplay.split(operator);
     console.table(equationArray)
     console.log(operator)
-    let num1 = parseInt(equationArray[0].split(operator));
-    let num2 = parseInt(equationArray[1]);
+    let num1 = parseFloat(equationArray[0].split(operator));
+    let num2 = parseFloat(equationArray[1]);
     display.textContent = Math.round(operate(operator, num1, num2) * 100) / 100;
-})   
-    
+})
+
 //add decimal point to display
 //disable decimal point if a decimal point 
 //is already in the number in display (i.e., an operator resets decimal count)
-decimalButton.addEventListener("click", function() {
+decimalButton.addEventListener("click", function () {
     mainHit.play();
     let displayValue = display.textContent;
     let decimal = event.target.textContent;
     display.textContent = displayValue.concat(decimal);
 })
 //keyboard support 
-//(event listener's match with their original input, numberkeyboard similar code to numberbutton event listener)
+
+//(event listener's match with their original input, numberkeyboard similar 
+//code to numberbutton event listener)
 
 operateButtons.forEach(function (theOperators) {
     theOperators.addEventListener("click", function () {
@@ -94,11 +96,11 @@ operateButtons.forEach(function (theOperators) {
         let plusSign = /\+/
         let minusSign = /\-/
         let multSign = /\x/
-        let divSign = /\÷/ 
+        let divSign = /\÷/
 
         //If operator is in display already, calculate that equation then concat 
         //that result to the operator pressed (second-time pressed operator).
-        if (plusSign.test(displayValue) === true || minusSign.test(displayValue) === true || 
+        if (plusSign.test(displayValue) === true || minusSign.test(displayValue) === true ||
             multSign.test(displayValue) === true || divSign.test(displayValue) === true) {
             let prevOperator = operator
             operator = event.target.textContent;
@@ -106,8 +108,8 @@ operateButtons.forEach(function (theOperators) {
             //output of equation
             const equationArray = displayValue.split(prevOperator);
             console.table(equationArray)
-            let num1 = parseInt(equationArray[0]);
-            let num2 = parseInt(equationArray[1]);
+            let num1 = parseFloat(equationArray[0]);
+            let num2 = parseFloat(equationArray[1]);
             display.textContent = Math.round(operate(prevOperator, num1, num2) * 100) / 100;
             displayValue = display.textContent
             display.textContent = displayValue.concat(operator)
@@ -119,4 +121,12 @@ operateButtons.forEach(function (theOperators) {
             return operator
         }
     })
+});
+
+//KEYBOARD EVENTS
+let numbersEvent = new Event ("click")
+document.addEventListener("keypress", function () {
+    if (event.key === "Enter") {
+        equalsButton.dispatchEvent(numbersEvent);
+    }
 });
